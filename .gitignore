@@ -1,0 +1,28 @@
+# Build artifacts
+cp450-exporter
+coverage.out
+*.test
+
+# Dependencies
+vendor/
+
+# Local configuration
+.env
+
+# Preserved pre-Go migration source
+cp450_api.py
+test_cp450_api.py
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

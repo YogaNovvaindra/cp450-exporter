@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+.vscode
+.DS_Store
+.env
+coverage.out
+cp450-exporter
+*.log
+*.py
+__pycache__/
