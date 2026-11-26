@@ -42,6 +42,12 @@ Published images from this repository are available at:
 ghcr.io/yoganovvaindra/cp450-exporter:latest
 ```
 
+The image includes build metadata in `/version.txt`:
+
+```bash
+docker run --rm --entrypoint cat cp450-exporter /version.txt
+```
+
 ## Configuration
 
 | Variable | Description | Default |

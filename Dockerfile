@@ -20,14 +20,17 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     go build -trimpath \
     -ldflags="-s -w -X main.version=$VERSION -X main.commit=$COMMIT -X main.buildDate=$BUILD_DATE" \
     -o /cp450-exporter .
+RUN printf 'version=%s\ncommit=%s\nbuild_date=%s\n' \
+    "$VERSION" "$COMMIT" "$BUILD_DATE" > /version.txt
 
-FROM alpine:3.22
+FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates \
     && addgroup -S exporter \
     && adduser -S -G exporter exporter
 
 COPY --from=builder /cp450-exporter /usr/local/bin/cp450-exporter
+COPY --from=builder /version.txt /version.txt
 
 USER exporter
 EXPOSE 9817
